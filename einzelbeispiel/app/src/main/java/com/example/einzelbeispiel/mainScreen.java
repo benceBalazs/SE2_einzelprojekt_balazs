@@ -72,6 +72,32 @@ public class mainScreen extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("StaticFieldLeak")
+    public class FeatureCall extends AsyncTask<String, int[], String> {
+        @Override
+        protected String doInBackground(String... params) {
+            StringBuilder outputString = new StringBuilder();
+            if (params.length != 0) {
+                for (int i = 1; i < params[0].length() + 1; i++) {
+                    if (i % 2 == 0 && params[0].charAt(i - 1) != '0') {
+                        int offSet = 'a' + Character.getNumericValue(params[0].charAt(i - 1)) - 1;
+                        outputString.append((char) offSet);
+                    } else {
+                        outputString.append(params[0].charAt(i - 1));
+                    }
+                }
+            }
+            return outputString.toString();
+        }
+
+        @Override
+        protected void onPostExecute(String outputString) {
+            super.onPostExecute(outputString);
+            featureResult = (TextView) findViewById(R.id.textViewResponseFeatureResult);
+            featureResult.setText(outputString);
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,6 +110,6 @@ public class mainScreen extends AppCompatActivity {
     }
 
     public void runFeature(View v) {
-        
+        new FeatureCall().execute(mEdit.getText().toString());
     }
 }

@@ -6,7 +6,13 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="logo_desc">Logo of the App</string>
+    <string name="btn_run">Run</string>
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="tcp_feature">TCP Feature</string>
+    <string name="result">Result</string>
+    <string name="matrikelnummer_eingeben">Matrikelnummer eingeben</string>
+    <string name="erweiterung_aufgabe_2">Erweiterung Aufgabe 2</string>
 </resources>
